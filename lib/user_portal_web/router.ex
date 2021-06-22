@@ -25,6 +25,11 @@ defmodule UserPortalWeb.Router do
 
     get "/", PageController, :index
   end
+  scope "/register", UserPortalWeb do
+    pipe_through :browser
+
+    post "/register", PageController, :new
+  end
   scope "/v1/api/auth", UserPortalWeb do
     pipe_through :api
     get "/verify_email/:token", AccessTokenController, :verify_email
