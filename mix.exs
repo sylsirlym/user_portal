@@ -42,11 +42,13 @@ defmodule UserPortal.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"},
+      {:plug_cowboy, "~> 2.5.0"},
       {:guardian, "~> 0.14"},
-      {:swoosh, "~> 0.8.1"},
+      {:swoosh, "~> 1.0"},
       {:secure_random, "~> 0.5.1"},
-      {:hasher, "~> 0.1.0"}
+      {:hasher, "~> 0.1.0"},
+      {:hackney, "~> 1.9"},
+      {:ja_serializer, "~> 0.16.0"}
     ]
   end
 
