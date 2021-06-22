@@ -13,10 +13,10 @@ config :user_portal,
 # Configures the endpoint
 config :user_portal, UserPortalWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "dWO2oFioieIY5pjsC5TVoINCwcDPhfMoKYS5FZWZU2ZU0Bhe04t5sRqJeMiCWmrh",
-  render_errors: [view: UserPortalWeb.ErrorView, accepts: ~w(json), layout: false],
+  secret_key_base: "dK+scRuSSmxyYHLdpPveP7ZR1myLeyg21wqEBckFc8jaXgH/wFOiixzBf2MZmxTI",
+  render_errors: [view: UserPortalWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: UserPortal.PubSub,
-  live_view: [signing_salt: "GdrdOgSN"]
+  live_view: [signing_salt: "358d6Mdx"]
 
 # Configures Elixir's Logger
 config :logger, :console,

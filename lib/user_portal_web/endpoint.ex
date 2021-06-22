@@ -7,7 +7,7 @@ defmodule UserPortalWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_user_portal_key",
-    signing_salt: "2VXBG2VJ"
+    signing_salt: "bksxeLHe"
   ]
 
   socket "/socket", UserPortalWeb.UserSocket,
@@ -29,6 +29,8 @@ defmodule UserPortalWeb.Endpoint do
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
+    socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
+    plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
     plug Phoenix.Ecto.CheckRepoStatus, otp_app: :user_portal
   end

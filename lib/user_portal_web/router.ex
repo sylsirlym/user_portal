@@ -1,6 +1,14 @@
 defmodule UserPortalWeb.Router do
   use UserPortalWeb, :router
 
+  pipeline :browser do
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :fetch_flash
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
+  end
+
   pipeline :api do
     plug :accepts, ["json", "json-api"]
     plug JaSerializer.Deserializer
@@ -11,9 +19,11 @@ defmodule UserPortalWeb.Router do
     plug Guardian.Plug.LoadResource
     plug JaSerializer.Deserializer
   end
+
   scope "/api", UserPortalWeb do
-    pipe_through :api
-#    get "/", PageController, :index
+    pipe_through :browser
+
+    get "/", PageController, :index
   end
   scope "/v1/api/auth", UserPortalWeb do
     pipe_through :api
